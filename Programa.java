@@ -10,36 +10,36 @@ public class Programa {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		Utilitarios utilitarios = new Utilitarios();
+		Utilitarios utilitarios = new Utilitarios(null, 0, 0, 0, 0, null);
 		
 		System.out.print("Enter account number: ");
-		utilitarios.conta = sc.nextDouble();
+		utilitarios.addConta(sc.nextDouble());
 		sc.nextLine();
 		System.out.print("Enter account holder: ");	
-		utilitarios.nome = sc.nextLine();
+		utilitarios.setNome(sc.nextLine());
 		
 		System.out.print("Is there na initial deposit (y/n)? ");
-		utilitarios.iniciarDeposito = sc.next();
+		utilitarios.setIniciarDeposito(sc.next());
 		
-		if(utilitarios.iniciarDeposito.equals("y")){
+		if(utilitarios.getIniciarDeposito().equals("y")){
 		System.out.print("Enter initial deposit value: ");
-		utilitarios.valorInicial = sc.nextDouble();
+		utilitarios.setValorInicial(sc.nextDouble());
 		}
 		System.out.println("");
 		System.out.println("Account data: ");
-		System.out.printf("Account %.0f, Holder: %s, Balance: $ %.2f%n",utilitarios.conta ,utilitarios.nome,utilitarios.valorEmConta());
+		System.out.printf("Account %.0f, Holder: %s, Balance: $ %.2f%n",utilitarios.getConta() ,utilitarios.getNome(),utilitarios.getValorEmConta());
 		System.out.println("");
 		System.out.print("Enter a deposit value: ");
-		utilitarios.deposito = sc.nextDouble();
+		utilitarios.setDeposito(sc.nextDouble());
 		
 		System.out.println("Updated Account data: ");
-		System.out.printf("Account %.0f, Holder: %s, Balance: $ %.2f%n",utilitarios.conta ,utilitarios.nome,utilitarios.valorEmConta());
+		System.out.printf("Account %.0f, Holder: %s, Balance: $ %.2f%n",utilitarios.getConta() ,utilitarios.getNome(),utilitarios.getValorEmConta());
 		System.out.println("");
 		System.out.print("Enter a withdraw value: ");
-		utilitarios.saque = sc.nextDouble();
+		utilitarios.setSaque(sc.nextDouble());
 		
 		System.out.println("Updated Account data: ");
-		System.out.printf("Account %.0f, Holder: %s, Balance: $ %.2f%n",utilitarios.conta ,utilitarios.nome,utilitarios.retirada());
+		System.out.printf("Account %.0f, Holder: %s, Balance: $ %.2f%n",utilitarios.getConta() ,utilitarios.getNome(),utilitarios.getRetirada());
 		
 		sc.close();
 	}
